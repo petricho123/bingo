@@ -119,7 +119,7 @@ fun CarryDialog(tasks: List<Task>, available: Int, close: () -> Unit, save: (Lis
     val chosen = remember(tasks) { mutableStateListOf<String>() }
     AlertDialog(onDismissRequest = close, title = { Text("미완료 가져오기") },
         text = { Column(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState())) {
-            Text("빈 칸 $available개")
+            Text("빈 칸 ${available}개")
             if (tasks.isEmpty()) Text("가져올 할 일이 없어요.")
             tasks.forEach { task ->
                 CheckRow(task.name, task.id in chosen) { checked ->
